@@ -11,11 +11,11 @@ function DataRangePicker({ onDateRangeChange }) {
     const currentYear = new Date().getFullYear();
     const years = [];
 
-    for (let y = 2020; y < currentYear; y++) {
+    for (let y = 2019; y < currentYear; y++) {
         years.push(y);
     }
 
-    const [startYear, setStartYear] = useState(2020);
+    const [startYear, setStartYear] = useState(2019);
     const [endYear, setEndYear] = useState(currentYear);
     const [error, setError] = useState("");
 
