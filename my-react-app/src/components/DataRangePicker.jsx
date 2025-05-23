@@ -1,17 +1,12 @@
-
 import { useState } from "react";
-import { React } from "react";
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import Button from '@mui/material/Button';
-import CheckIcon from '@mui/icons-material/Check';
 
 function DataRangePicker({ onDateRangeChange }) {
 
     const currentYear = new Date().getFullYear();
     const years = [];
-     console.log(currentYear,);
-     
+
     for (let y = 2019; y < currentYear; y++) {
         years.push(y);
     }
@@ -48,8 +43,9 @@ function DataRangePicker({ onDateRangeChange }) {
                     <MenuItem key={year} value={year}>
                         {year}
                     </MenuItem>
-                ))}
 
+                ))}
+                console.log(year,"start");
             </Select>
 
             <label>To: </label>
@@ -60,11 +56,14 @@ function DataRangePicker({ onDateRangeChange }) {
                 value={endYear}
             >
                 {years.map((year) => (
-                    <MenuItem key={year} value={year} onClick={changehandler} >
+                    <MenuItem key={year} value={year}  >
                         {year}
                     </MenuItem>
                 ))}
+                console.log(year,"end");
+
             </Select>
+            <button onClick={changehandler} >Submit</button>
             {error && <p style={{ color: "red" }}>{error}</p>}
 
 

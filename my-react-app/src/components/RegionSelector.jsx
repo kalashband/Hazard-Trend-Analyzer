@@ -77,17 +77,10 @@ function RegionSelector({ onRegionSelect }) {
                 margin: "2rem"
             }}>
                 <button variant="contained" size="" onClick={submitHandle} color="#121212"
-                    style={{
-                        // position: "fixed",
-                        // left: "500px",
-                        // margin: "25px",
-                        // marginTop: "3rem"
-                    }}>
-                    Submit
+                    >Submit
                 </button>
             </div>
             {error && <p style={{ color: "red" }}>{error}</p>}
-
         </div>
     )
 }

@@ -4,8 +4,7 @@ import React from "react";
 function Summarybox({ trendData }) {
 
     if (!trendData || trendData.length < 2) return null;
-
-
+    
     const sorted = [...trendData].sort((a, b) => a.year - b.year);
     const first = sorted[0];
     const last = sorted[sorted.length - 1];

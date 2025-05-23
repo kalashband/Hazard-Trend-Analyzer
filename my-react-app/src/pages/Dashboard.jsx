@@ -18,22 +18,19 @@ function Dashboard() {
             alert("Please Select both date range and region")
         }
         setLoading(true);
-        console.log(getTrendData);
-        
+
         try {
             const result = await getTrendData(region, dateRange);
             if (result?.trend) {
-                setTrendData(result.trend || []);
-                console.log(result.trend, "result trend");
+                setTrendData(result.trend); // ✅ expecting trend here
             }
+
 
         } catch (err) {
             console.error("API Error:", err.message);
             if (err.response) {
                 console.error("Response:", err.response);
-            } else if (err.request) {
-                console.error("Request:", err.request);
-            } else {
+            }else {
                 console.error("Error:", err);
             }
         } finally {
@@ -42,38 +39,12 @@ function Dashboard() {
     };
 
     const handleRegionSelect = (selected) => {
-        console.log("selected Region :", selected);
         setRegion(selected);
     }
 
     const handleDateRangeChange = (range) => {
-        console.log("Seleted range ", range);
         setDateRange(range);
     }
-
-    console.log(dateRange?.end, "end");
-
-
-    const handleFetchTrend = async () => {
-        if (!dateRange) {
-            console.warn("Date range is not set");
-            return;
-        }
-
-        const startDate = `${dateRange.start}-01-01`;
-        const endDate = `${dateRange.end}-12-31`;
-
-        const url = `https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&start_date=${startDate}&end_date=${endDate}&hourly=relative_humidity_2m`;
-
-        try {
-            const response = await fetch(url);
-            const data = await response.json();
-
-            setTrendData(data); // or data.trend if that's the correct field
-        } catch (error) {
-            console.error("Fetch failed:", error);
-        }
-    };
 
     return (
         <div style={{
