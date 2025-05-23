@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE = "http://localhost:8000/api";
+const API_BASE = "https://hazard-trend-analyzer.onrender.com/api";
 
 export const getTrendData = async (region, dateRange) => {
   const { lat, lon } = region.value;
