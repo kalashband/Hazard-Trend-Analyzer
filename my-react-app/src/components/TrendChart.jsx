@@ -11,11 +11,13 @@ import {
 import { Line } from "react-chartjs-2";
 
 ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Legend);
+console.log("chart");
 
 function TrendChart({ trendData }) {
     if (!trendData || trendData.length === 0) {
         return <p style={{ marginTop: "1rem" }}>📉 No data to display. Please run a search.</p>;
     }
+console.log("TrendChart");
 
     const years = trendData.map((d) => d.year);
     const counts = trendData.map((d) => d.heatwave_count);
