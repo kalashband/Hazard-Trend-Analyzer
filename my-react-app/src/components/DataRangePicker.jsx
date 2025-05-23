@@ -10,7 +10,8 @@ function DataRangePicker({ onDateRangeChange }) {
 
     const currentYear = new Date().getFullYear();
     const years = [];
-
+     console.log(currentYear,);
+     
     for (let y = 2019; y < currentYear; y++) {
         years.push(y);
     }

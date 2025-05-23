@@ -6,7 +6,7 @@ async def fetch_weather_data(lat, lon, start, end):
     url = (
         f"https://historical-forecast-api.open-meteo.com/v1/forecast?"
         f"latitude={lat}&longitude={lon}"
-        f"&start_date={start}-01-01&end_date={end}-12-31"
+        f"&start_date={start}-01-01&end_date={end}-01-31"
         f"&daily=temperature_2m_max&timezone=auto"
     )
 
